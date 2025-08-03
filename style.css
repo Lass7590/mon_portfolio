@@ -26,6 +26,7 @@ body {
    z-index: 5;
    border-right: 1px dashed #f1f1f1;
    padding: 10px 0;
+   transition: all 0.3s ease-in-out;
    
 }
 
@@ -108,5 +109,109 @@ body {
    top: 50%;
    left: 50%;
    transform: translate(-50%, -50%);
+}
+
+/**************** Bouton hamburger **************/
+
+@media screen and (max-width: 1300px) {
    
+   .nav-gauche{
+      left: -300px!important;
+      width: 250px;
+      min-height: 300px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+   }
+
+   .nav-visible{
+      left: 0!important;
+   }
+
+   .blocs-menu:nth-child(1){
+      display: none;
+   }
+
+   .blocs-menu:nth-child(7){
+      display: none;
+   }
+   
+   .btn-rond-menu{
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background: #333;
+      z-index: 10;
+      cursor: pointer;
+      border : 1px solid #f1f1f1;
+   }
+
+   .container-ligne{
+      width: 26px;
+      height: 26px;
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+   }
+
+   .container-ligne .ligne{
+      width: 100%;
+      height: 3px;
+      background: #f1f1f1;
+      border-radius: 2px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+   }
+
+   .container-ligne .ligne::before{
+      content: "";
+      display: block;
+      width: 100%;
+      height: 3px;
+      bottom: 10px;
+      background: #f1f1f1;
+      border-radius: 2px;
+      position: absolute;
+      transition: all 0.3s ease-in-out;
+   }
+   .container-ligne .ligne::after{
+      content: "";
+      display: block;
+      width: 100%;
+      height: 3px;
+      top: 10px;
+      background: #f1f1f1;
+      border-radius: 2px;
+      position: absolute;
+      transition: all 0.3s ease-in-out;
+   }
+
+   .container-ligne.active .ligne{
+      background: transparent;
+
+   }
+
+   .container-ligne.active .ligne::after{
+      top: 0;
+      transition: top 300ms ease, transform 0.3s 0.3s ease;
+      transform: rotate(45deg);
+   }
+
+   .container-ligne.active .ligne::before{
+      bottom: 0;
+      transition: bottom 300ms ease, transform 0.3s 0.3s ease;
+      transform: rotate(-45deg);
+   }
+
+   /* .nav-gauche.active{
+      width: 0;
+   } */
 }
